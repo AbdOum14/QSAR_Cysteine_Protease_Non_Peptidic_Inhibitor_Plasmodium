@@ -1,4 +1,1 @@
-# QSAR_Cysteine_Protease_Non_Peptidic_Inhibitor_Plasmodium
-
-Se han encontrado 127 moléculas donde 99 son inactivas y 28 activas
-El dataset final está en la carpeta datasets
+The dataset contained 471 compounds all of them previously assayed against FP2, then we transformed those SMILES to canonical SMILES to ensure there are not anymore compounds duplicated. Such compounds were labeled as active (1) or inactive (0) according to their reported inhibitory data. The compound was considered active (1) with IC50 ≤ 5 uM; otherwise, it would be considered as inactive (0). Considering these criteria the dataset was formed by 146 active compounds and 301 inactive compounds.
