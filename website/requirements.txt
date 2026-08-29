@@ -1,0 +1,11 @@
+# --- Necesarios para entrenar (train_export_artifacts.py) Y para predecir (inference_pipeline.py) ---
+pandas
+numpy==1.23.5 
+scipy
+scikit-learn
+xgboost
+lightgbm
+rdkit
+mordred
+joblib
+shap
