@@ -9,3 +9,11 @@ Converts each compound's canonical SMILES into a MACCS fingerprint (166 binary d
 
 # Analisis FP2_PF
 Script/notebook that computes molecular descriptors for compounds with tested activity against Falcipain-2 that also have recorded activity against _Plasmodium_, and compares — via PCA, t-SNE/UMAP, univariate statistical tests (Mann-Whitney, Fisher with FDR correction), and a Lasso model with Leave-One-Out validation — which characteristics distinguish compounds active against the falcipain-2 enzyme that do translate that activity to the whole organism (_P. falciparum_) from those that don't. Includes a confounding control to rule out that the difference is simply due to unequal enzymatic potency between groups. Output: tables of significant/consensus descriptors and plots (PCA, volcano plot, boxplots, t-SNE/UMAP).
+
+# Website
+
+## Joblib files
+Files generated once from the original datasets; they are not executed on the website, only loaded. Each bundle contains the 3 best already-trained models (scikit-learn Pipelines with imputation + scaling + classifier), the list of descriptor columns they expect, the kNN-AD applicability domain parameters (scaler, nearest-neighbors model, threshold), a sample of the training set (for SHAP interpretability), and the label meaning. They must be copied alongside inference_pipeline.py, inside an artifacts/ folder, on the server running the website's backend.
+
+## Inference pipeline
+Loads the already-trained models (mordred_bundle.joblib, maccs_bundle.joblib) in seconds to predict without retraining anything. Each step is a function: it validates SMILES with RDKit, computes Mordred/MACCS descriptors, aligns them with the columns each bundle expects, checks the applicability domain (kNN-AD), and runs the 3 best saved models, returning the prediction (Active/Inactive), mean probability, model consensus, and per-molecule SHAP interpretability
