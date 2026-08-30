@@ -1,7 +1,7 @@
 # Dataset employed
 The dataset contained 471 compounds all of them previously assayed against FP2, then we transformed those SMILES to canonical SMILES to ensure there are not anymore compounds duplicated. Such compounds were labeled as active (1) or inactive (0) according to their reported inhibitory data. The compound was considered active (1) with IC50 ≤ 5 uM; otherwise, it would be considered as inactive (0). Considering these criteria the dataset was formed by 146 active compounds and 301 inactive compounds.
 
-# Machine Learning FP2 (Mordred desciptors)
+# Machine Learning FP2 (Mordred descriptors)
 Calculates ~1600 2D physicochemical descriptors (Mordred) per SMILES, cleans empty/NaN/zero-variance columns, and imputes with the median. Filters redundancy using _Spearman_ correlation (threshold 0.7). Splits train/test with StratifiedGroupKFold (grouping near-identical compounds) and trains 14 ML algorithms via GridSearchCV. Selects the 3 best models by score_balanced (test ROC-AUC penalized for overfitting). Computes the applicability domain with kNN-AD (distance to the 5 nearest neighbors in the training set, threshold = mean + 2·SD) and the interpretability of the 3 models with permutation importance (magnitude + direction via Pearson correlation with the predicted probability).
 
 # Machine Learning FP2 (MACCS fingerprints)
