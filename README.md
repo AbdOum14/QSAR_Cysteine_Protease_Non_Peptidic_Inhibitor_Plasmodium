@@ -12,7 +12,7 @@ Converts each compound's canonical SMILES into a MACCS fingerprint (166 binary d
 ## _Analisis FP2_PF (Discrepancy Analysis)_
 Notebook that computes molecular descriptors for compounds with tested activity against Falcipain-2 that also have recorded activity against _Plasmodium_, and compares — via PCA, t-SNE/UMAP, univariate statistical tests (Mann-Whitney, Fisher with FDR correction), and a Lasso model with Leave-One-Out validation — which characteristics distinguish compounds active against the falcipain-2 enzyme that do translate that activity to the whole organism (_P. falciparum_) from those that don't. Includes a confounding control to rule out that the difference is simply due to unequal enzymatic potency between groups. Output: tables of significant/consensus descriptors and plots (PCA, volcano plot, boxplots, t-SNE/UMAP).
 
-##_Cribado_Virtual_ 
+## _Cribado_Virtual_ 
 This notebook performs a virtual screening of a general antiplasmodial compound library (ChEMBL) against the previously trained Falcipain-2 QSAR models. It cleans and standardizes the SMILES, harmonizes activity units to µM, and excludes any compound already present in the FP2 training set. Each candidate is then featurized with both MACCS and Mordred descriptors, checked against the kNN applicability domain of each model, and scored by the top-3 ensemble from both maccs_bundle.joblib and mordred_bundle.joblib. Compounds predicted active by both descriptor types' top-1 models and falling inside both applicability domains are flagged as candidates whose antiplasmodial activity may be mechanistically explained by Falcipain-2 inhibition
 
 # _*Website*_
