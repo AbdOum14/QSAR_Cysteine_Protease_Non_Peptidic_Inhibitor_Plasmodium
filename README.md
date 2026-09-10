@@ -1,4 +1,4 @@
-# _*Dataset employed*_
+# _*Dataset employed for model training*_
 The dataset contained 471 compounds all of them previously assayed against FP2, the vast majority of them were form the public database ChEMBL and some retrieved from scientific literature. Then we transformed the compounds SMILES to canonical SMILES to ensure there are not any duplicates. The dataset was labeled following the next criteria: compounds were considered as active (1) or inactive (0) according to their reported inhibitory data. With IC50 ≤ 5 uM it was labeled as active ; otherwise, it would be considered as inactive (0). Once all the compounds were labeled the dataset was formed by 146 active compounds and 301 inactive compounds.
 
 # _*Scripts*_
